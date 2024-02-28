@@ -37,6 +37,18 @@ export default function App() {
     setCustomers(allCustomers => [...allCustomers, response.data])
   }
 
+  async function handleDelete(id: string) {
+    try {
+      await api.delete("/customer", {
+        params: {
+          id: id,
+        }
+      })
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div className="w-full min-h-screen bg-gray-900 flex justify-center px-4">
       <main className="my-10 w-full md:max-w-2xl">
@@ -76,7 +88,9 @@ export default function App() {
               <p><span className="font-medium">Status:</span> {customer.status ? "ATIVO" : "INATIVO"} </p>
 
               <button
-                className='bg-red-500 w-7 h-7 flex items-center justify-center rounded-lg absolute right-0 -top-2'>
+                className='bg-red-500 w-7 h-7 flex items-center justify-center rounded-lg absolute right-0 -top-2'
+                onClick={() => handleDelete(customer.id)}
+              >
                 <FiTrash size={18} color="#FFF" />
               </button>
 
