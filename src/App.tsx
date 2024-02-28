@@ -38,7 +38,6 @@ export default function App() {
 
     nameRef.current.value = ""
     emailRef.current.value = ""
-
   }
 
   async function handleDelete(id: string) {
@@ -60,7 +59,7 @@ export default function App() {
   return (
     <div className="w-full min-h-screen bg-gray-900 flex justify-center px-4">
       <main className="my-10 w-full md:max-w-2xl">
-        <h1 className="text-4x1 font-medium text-white">Clientes</h1>
+        <h1 className="text-4xl font-medium text-white">Clientes</h1>
 
         <form className="flex flex-col my-6" onSubmit={handleSubmit}>
           <label className="font-medium text-white">Name:</label>
