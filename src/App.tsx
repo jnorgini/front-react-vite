@@ -44,6 +44,10 @@ export default function App() {
           id: id,
         }
       })
+
+      const allCustomers = customers.filter((customer) => customer.id !== id)
+      setCustomers(allCustomers)
+
     } catch (err) {
       console.log(err);
     }
